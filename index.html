@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Grupo VIP fechado com lives diárias. BALACLAVA IA analisa ao vivo, você copia e lucra. Lançamento 11/05.">
+<title>BALACLAVA IA · Grupo VIP</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','991305443585494');
+fbq('track','PageView');
+function trackLead(){if(typeof fbq!=='undefined')fbq('track','Lead');}
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=991305443585494&ev=PageView&noscript=1"/></noscript>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --green:#00ff88;
+  --green-glow:rgba(0,255,136,0.4);
+  --green-soft:rgba(0,255,136,0.08);
+  --red:#ff3344;
+  --bg:#070709;
+  --surface:#0e0e11;
+  --surface-2:#14141a;
+  --border:#1c1c22;
+  --text:#f0f0f0;
+  --muted:#6a6a72;
+  --muted-2:#3a3a42;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background-color:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,136,0.025) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* Layout */
+.container{max-width:480px;margin:0 auto;padding:0 20px;}
+@media(max-width:380px){.container{padding:0 16px;}}
+
+/* Typography */
+.green{color:var(--green);text-shadow:0 0 24px var(--green-glow);}
+.strike{
+  text-decoration:line-through;
+  text-decoration-color:var(--green);
+  text-decoration-thickness:3px;
+  color:var(--muted);
+}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* === TOPBAR === */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,7,9,0.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:480px;margin:0 auto;
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.06em;color:var(--text);}
+.topbar-tag{
+  display:flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);
+  background:var(--green-soft);border:1px solid rgba(0,255,136,0.15);
+  padding:5px 10px;border-radius:999px;
+}
+
+/* Pulse dot */
+.pulse-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  animation:pulse 1.6s infinite;
+  flex-shrink:0;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:0.4;transform:scale(0.7);}
+}
+
+/* === HERO === */
+.hero{padding:44px 0 52px;position:relative;z-index:1;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);
+  background:var(--green-soft);border:1px solid rgba(0,255,136,0.2);
+  padding:6px 12px;border-radius:999px;margin-bottom:20px;
+  opacity:0;animation:fadeUp 0.4s 0.05s ease forwards;
+}
+
+.hero-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,12vw,64px);
+  line-height:1.0;letter-spacing:0.02em;
+  margin-bottom:20px;
+  opacity:0;animation:fadeUp 0.4s 0.15s ease forwards;
+}
+
+.hero-subtitle{
+  font-size:17px;color:var(--text);line-height:1.6;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.4s 0.25s ease forwards;
+  font-weight:500;
+}
+.hero-subtitle strong{color:var(--green);font-weight:700;text-shadow:0 0 16px var(--green-glow);}
+
+/* Image card */
+.img-card{
+  position:relative;border-radius:18px;overflow:hidden;
+  aspect-ratio:4/5;background:var(--surface-2);
+  border:1px solid var(--border);margin-bottom:28px;
+  transition:border-color 0.25s;
+}
+.img-card:hover{border-color:rgba(0,255,136,0.2);}
+.img-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(7,7,9,0.95) 100%);
+}
+.img-tag{
+  position:absolute;top:14px;left:14px;
+  display:flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  background:rgba(7,7,9,0.82);border:1px solid rgba(0,255,136,0.25);
+  color:var(--green);padding:5px 10px;border-radius:8px;
+  backdrop-filter:blur(8px);
+}
+
+
+/* Countdown */
+.countdown{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.4s 0.45s ease forwards;
+}
+.cd-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:14px 8px 10px;text-align:center;
+}
+.cd-num{
+  font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;
+  color:var(--green);text-shadow:0 0 20px var(--green-glow);
+  display:block;
+}
+.cd-lbl{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;
+  display:block;margin-top:4px;
+}
+
+/* CTA Button */
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:18px 24px;
+  background:var(--green);color:#070709;
+  font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;
+  border:none;border-radius:14px;cursor:pointer;
+  text-decoration:none;
+  position:relative;overflow:hidden;
+  transition:transform 0.15s,box-shadow 0.15s;
+  box-shadow:0 0 0 rgba(0,255,136,0);
+  opacity:0;animation:fadeUp 0.4s 0.5s ease forwards;
+}
+.cta-btn::before{
+  content:'';position:absolute;
+  top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  transition:left 0.4s ease;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--green-glow);}
+.cta-btn:hover::before{left:150%;}
+.cta-btn:active{transform:translateY(0);}
+
+.cta-btn.no-anim{opacity:1;animation:none;}
+.cta-btn.outline{
+  background:transparent;color:var(--green);
+  border:1px solid rgba(0,255,136,0.3);
+  box-shadow:none;opacity:1;animation:none;
+}
+.cta-btn.outline:hover{background:var(--green-soft);border-color:var(--green);box-shadow:none;}
+
+/* Vagas block */
+.vagas-block{
+  margin-top:16px;
+  opacity:0;animation:fadeUp 0.4s 0.55s ease forwards;
+}
+.vagas-block.no-anim{opacity:1;animation:none;}
+.vagas-row{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--muted);margin-bottom:7px;
+}
+.vagas-count{color:var(--green);}
+.vagas-bar{height:4px;background:var(--surface-2);border-radius:999px;overflow:hidden;}
+.vagas-fill{
+  height:100%;background:var(--green);border-radius:999px;
+  transition:width 0.8s ease;box-shadow:0 0 8px var(--green-glow);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* === SECTIONS === */
+section{padding:56px 0;position:relative;z-index:1;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 20px;}
+
+.sec-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,9vw,48px);
+  line-height:1.05;letter-spacing:0.02em;
+  margin-bottom:8px;
+}
+.sec-sub{color:var(--muted);font-size:14px;margin-bottom:28px;line-height:1.65;}
+
+/* Benefits */
+.benefits{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.benefit{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:15px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;
+  font-size:14px;font-weight:500;transition:border-color 0.2s;
+}
+.benefit:hover{border-color:rgba(0,255,136,0.2);}
+.check{width:18px;height:18px;flex-shrink:0;margin-top:1px;color:var(--green);}
+
+/* Quote */
+.quote-block{
+  background:var(--surface);border:1px solid var(--border);
+  border-left:3px solid var(--green);border-radius:14px;
+  padding:22px 20px;margin:24px 0 0;
+}
+.quote-text{font-size:17px;font-weight:500;line-height:1.55;margin-bottom:12px;}
+.quote-sig{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);}
+
+
+
+/* CTA Final */
+.cta-final{padding:60px 0;text-align:center;position:relative;z-index:1;}
+.cta-final::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:420px;height:420px;
+  background:radial-gradient(circle,rgba(0,255,136,0.07) 0%,transparent 70%);
+  pointer-events:none;z-index:-1;
+}
+.mini-label{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--muted);display:block;margin-bottom:14px;
+}
+.cta-final .sec-sub{max-width:340px;margin-left:auto;margin-right:auto;}
+
+/* Footer */
+footer{padding:32px 0;border-top:1px solid var(--border);position:relative;z-index:1;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--muted-2);margin-bottom:10px;}
+.footer-disc{font-size:11px;color:var(--muted-2);line-height:1.7;max-width:440px;}
+
+/* Floating CTA */
+.floating{
+  position:fixed;bottom:16px;left:50%;
+  transform:translateX(-50%) translateY(140%);
+  width:calc(100% - 32px);max-width:448px;
+  z-index:200;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:rgba(20,20,26,0.96);
+  border:1px solid rgba(0,255,136,0.22);
+  border-radius:16px;padding:12px 14px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 8px 40px rgba(0,0,0,0.65);
+  transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),opacity 0.3s;
+  opacity:0;
+}
+.floating.visible{transform:translateX(-50%) translateY(0);opacity:1;}
+.float-left{display:flex;flex-direction:column;gap:2px;}
+.float-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);}
+.float-vagas{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);}
+.float-btn{
+  flex-shrink:0;
+  display:flex;align-items:center;gap:6px;
+  padding:12px 18px;background:var(--green);color:#070709;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;
+  border:none;border-radius:10px;cursor:pointer;
+  text-decoration:none;white-space:nowrap;
+  position:relative;overflow:hidden;
+  transition:transform 0.15s,box-shadow 0.15s;
+}
+.float-btn::before{
+  content:'';position:absolute;
+  top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  transition:left 0.4s ease;
+}
+.float-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px var(--green-glow);}
+.float-btn:hover::before{left:150%;}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-logo">BALACLAVA</span>
+    <div class="topbar-tag">
+      <span class="pulse-dot"></span>
+      Recrutando
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      Grupo VIP &nbsp;·&nbsp; Lives ao vivo
+    </div>
+
+    <h1 class="hero-headline">
+      Cansou de estudar análise e mesmo assim tomar <span style="color:var(--red);text-shadow:0 0 20px rgba(255,51,68,0.4);">LOSS?</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Participe e tenha acesso ao <strong>BALACLAVA IA</strong> onde ele pensa, analisa e você executa!
+    </p>
+
+    <div class="countdown">
+      <div class="cd-item"><span class="cd-num" id="cd-d">0</span><span class="cd-lbl">Dias</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">Horas</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">Min</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">Seg</span></div>
+    </div>
+
+    <a href="https://chat.whatsapp.com/IcMABtYH0QP5UvlXUMwzD2"
+       class="cta-btn" onclick="trackLead()">
+      💬 Entrar no grupo VIP agora
+    </a>
+
+    <div class="vagas-block">
+      <div class="vagas-row">
+        <span>Vagas disponíveis</span>
+        <span class="vagas-count" id="v-hero">— vagas</span>
+      </div>
+      <div class="vagas-bar"><div class="vagas-fill" id="vb-hero"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ O QUE ROLA DENTRO ═══════════════════ -->
+<section>
+  <div class="container">
+
+    <div class="reveal">
+      <h2 class="sec-h">Não é robô de sinais<br><span class="green">É uma IA que pensa ao vivo</span></h2>
+      <p class="sec-sub">Enquanto você tentava decifrar gráfico, outros já copiavam operações de uma IA que não erra por emoção, não cansa e não para.</p>
+    </div>
+
+
+    <ul class="benefits reveal">
+      <li class="benefit">
+        <svg class="check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        A IA escaneia o mercado em tempo real, você só executa
+      </li>
+      <li class="benefit">
+        <svg class="check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Vê o raciocínio por trás de cada operação, ao vivo
+      </li>
+      <li class="benefit">
+        <svg class="check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Sem indicadores, sem tentativa e erro. Só análise limpa
+      </li>
+      <li class="benefit">
+        <svg class="check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Opera junto com quem já entende, não só assiste sinal
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CTA FINAL ═══════════════════ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="reveal">
+      <span class="mini-label">⏱ Tempo tá acabando</span>
+      <h2 class="sec-h">Entra agora<br>Ou <span class="green">vê de fora</span></h2>
+      <p class="sec-sub">A IA não espera. Cada live que passa sem você é uma operação que você perdeu.</p>
+
+      <a href="https://chat.whatsapp.com/IcMABtYH0QP5UvlXUMwzD2"
+         class="cta-btn no-anim" onclick="trackLead()">
+        💬 Entrar no grupo VIP agora
+      </a>
+
+      <div class="vagas-block no-anim">
+        <div class="vagas-row">
+          <span>Vagas disponíveis</span>
+          <span class="vagas-count" id="v-final">— vagas</span>
+        </div>
+        <div class="vagas-bar"><div class="vagas-fill" id="vb-final"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">BALACLAVA TRADER</div>
+    <p class="footer-disc">
+      Risco de perda: operar em mercados financeiros envolve risco real de perda de capital. Os resultados mostrados são individuais e não garantem ganhos futuros. Invista apenas o que você pode se dar ao luxo de perder. Este grupo não é consultoria de investimentos. Rendimentos passados não são garantia de rendimentos futuros.
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════ FLOATING CTA ═══════════════════ -->
+<div class="floating" id="floating">
+  <div class="float-left">
+    <span class="float-lbl">Grupo Balaclava VIP</span>
+    <span class="float-vagas" id="v-float">— vagas restantes</span>
+  </div>
+  <a href="https://chat.whatsapp.com/IcMABtYH0QP5UvlXUMwzD2"
+     class="float-btn" onclick="trackLead()">
+    💬 Entrar
+  </a>
+</div>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+<script>
+// COUNTDOWN — alvo: 11/05/2026 14h (Brasília = UTC-3)
+var TARGET = new Date('2026-05-11T17:00:00Z').getTime();
+
+function tick(){
+  var diff = TARGET - Date.now();
+  var d=document;
+  if(diff<=0){
+    d.getElementById('cd-d').textContent='0';
+    d.getElementById('cd-h').textContent='00';
+    d.getElementById('cd-m').textContent='00';
+    d.getElementById('cd-s').textContent='00';
+    return;
+  }
+  var days  = Math.floor(diff/86400000);
+  var hours = Math.floor((diff%86400000)/3600000);
+  var mins  = Math.floor((diff%3600000)/60000);
+  var secs  = Math.floor((diff%60000)/1000);
+  var z = function(n){return String(n).padStart(2,'0');};
+  d.getElementById('cd-d').textContent = days;
+  d.getElementById('cd-h').textContent = z(hours);
+  d.getElementById('cd-m').textContent = z(mins);
+  d.getElementById('cd-s').textContent = z(secs);
+}
+tick();
+setInterval(tick,1000);
+
+// VAGAS DINÂMICAS
+var VAGAS_TOTAL = 53;
+var VAGAS_MIN   = 7;
+var CAMPAIGN_START = (function(){
+  var k='blc_vs';
+  var s=localStorage.getItem(k);
+  if(!s){s=Date.now();localStorage.setItem(k,s);}
+  return parseInt(s);
+})();
+var DROP_MS = 10 * 1000; // 1 vaga a cada 10s
+
+function getVagas(){
+  var elapsed = Date.now() - CAMPAIGN_START;
+  var drops = Math.floor(elapsed / DROP_MS);
+  return Math.max(VAGAS_MIN, VAGAS_TOTAL - drops);
+}
+
+function renderVagas(){
+  var v = getVagas();
+  var pct = Math.min(((VAGAS_TOTAL - v) / (VAGAS_TOTAL - VAGAS_MIN)) * 100, 100);
+  var txt  = v + ' vagas';
+  var txtL = v + ' vagas restantes';
+
+  var vh = document.getElementById('v-hero');
+  var vf = document.getElementById('v-final');
+  var vfl= document.getElementById('v-float');
+  var bh = document.getElementById('vb-hero');
+  var bf = document.getElementById('vb-final');
+
+  if(vh)  vh.textContent  = txt;
+  if(vf)  vf.textContent  = txt;
+  if(vfl) vfl.textContent = txtL;
+  if(bh)  bh.style.width  = pct + '%';
+  if(bf)  bf.style.width  = pct + '%';
+}
+renderVagas();
+setInterval(renderVagas, 10000);
+
+// FLOATING CTA
+var floatEl = document.getElementById('floating');
+function checkFloat(){
+  var y  = window.scrollY;
+  var bH = document.body.scrollHeight;
+  var wH = window.innerHeight;
+  var nearBottom = (bH - y - wH) < 900;
+  floatEl.classList.toggle('visible', y > 600 && !nearBottom);
+}
+window.addEventListener('scroll', checkFloat, {passive:true});
+
+// REVEAL ON SCROLL
+var revEls = document.querySelectorAll('.reveal');
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+revEls.forEach(function(el){obs.observe(el);});
+</script>
+
+</body>
+</html>
