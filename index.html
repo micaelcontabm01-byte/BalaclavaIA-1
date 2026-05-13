@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="Dia 15 de maio, live de lançamento da Balaclava IA dentro do grupo do WhatsApp.">
+<meta name="theme-color" content="#080808">
+<meta property="og:title" content="Balaclava IA · Live de lançamento dia 15">
+<meta property="og:description" content="Dia 15 de maio, ao vivo no grupo do WhatsApp.">
+<meta property="og:type" content="website">
+<title>Balaclava IA · Live de lançamento dia 15</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','991305443585494');
+  fbq('track','PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=991305443585494&ev=PageView&noscript=1"/>
+</noscript>
+
+<style>
+  :root {
+    --green:#00ff88; --green-dim:#00cc6a;
+    --bg:#080808; --bg-elev:#0d0d0d;
+    --surface:#111; --surface-2:#161616; --surface-3:#0a0a0a;
+    --border:#1e1e1e; --border-strong:#2a2a2a;
+    --text:#f0f0f0; --muted:#888; --dim:#555;
+    --red:#ff4757; --red-dim:#cc3946;
+    --yellow:#ffc832;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.5; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+  body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(0,255,136,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.025) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; z-index:0; mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 30%,transparent 80%); -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 30%,transparent 80%); }
+  body::after { content:''; position:fixed; top:-200px; left:50%; transform:translateX(-50%); width:600px; height:400px; background:radial-gradient(ellipse at center,rgba(0,255,136,0.12),transparent 70%); pointer-events:none; z-index:0; filter:blur(40px); }
+  .container { width:100%; max-width:560px; margin:0 auto; padding:0 20px; position:relative; z-index:1; }
+
+  .topbar { position:sticky; top:0; z-index:50; background:rgba(8,8,8,0.85); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:12px 0; }
+  .topbar-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .brand { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:0.08em; color:#fff; }
+  .live-pill { background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.2); border-radius:100px; padding:4px 12px; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--green); font-weight:700; }
+
+  .hero { padding:36px 0 56px; text-align:center; }
+  .hero-tag { display:inline-block; background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.2); border-radius:100px; padding:6px 16px; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--green); font-weight:700; margin-bottom:22px; }
+  h1.hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,11vw,68px); line-height:0.95; letter-spacing:0.005em; color:#fff; margin-bottom:18px; text-wrap:balance; }
+  h1.hero-title span.accent { color:var(--green); display:block; text-shadow:0 0 32px rgba(0,255,136,0.35); }
+  .hero-sub { font-size:16px; color:var(--muted); line-height:1.55; max-width:440px; margin:0 auto 32px; }
+  .hero-sub strong { color:#fff; font-weight:600; }
+
+  .live-block { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px 20px; margin-bottom:32px; position:relative; overflow:hidden; }
+  .live-block::before { content:''; position:absolute; inset:-1px; border-radius:14px; padding:1px; background:linear-gradient(135deg,rgba(0,255,136,0.4),transparent 60%); -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+  .live-block-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--green); font-weight:700; margin-bottom:14px; }
+  .live-block-date { display:flex; align-items:baseline; justify-content:center; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+  .live-num { font-family:'Bebas Neue',sans-serif; font-size:clamp(48px,14vw,72px); line-height:0.9; color:#fff; letter-spacing:0.005em; }
+  .live-divider { color:var(--dim); font-family:'JetBrains Mono',monospace; font-size:28px; align-self:center; }
+  .live-meta { font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); font-weight:500; padding-top:14px; border-top:1px solid var(--border); }
+  .live-meta strong { color:var(--green); font-weight:700; }
+
+  .cta-primary { display:block; width:100%; background:var(--green); color:#000; font-family:'DM Sans',sans-serif; font-weight:700; font-size:16px; padding:18px 24px; border-radius:12px; text-decoration:none; transition:transform 0.15s; text-align:center; letter-spacing:0.005em; cursor:pointer; border:none; animation:pulse-cta 2.5s ease-in-out infinite; position:relative; overflow:hidden; }
+  @keyframes pulse-cta { 0%,100% { box-shadow:0 0 0 0 rgba(0,255,136,0.5); } 50% { box-shadow:0 0 0 12px rgba(0,255,136,0); } }
+  .cta-primary::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent); animation:shine 3s ease-in-out infinite; }
+  @keyframes shine { 0%,100% { left:-100%; } 50% { left:100%; } }
+  .cta-primary:hover { transform:translateY(-2px); }
+  .cta-primary:active { transform:translateY(0); }
+  .cta-meta { display:block; font-size:12px; color:var(--dim); margin-top:12px; text-align:center; }
+  .cta-meta strong { color:var(--yellow); }
+
+  section { padding:56px 0; position:relative; }
+  .section-tag { display:inline-block; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--green); font-weight:700; margin-bottom:12px; }
+  .section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,7.5vw,44px); line-height:1.05; letter-spacing:0.01em; color:#fff; margin-bottom:16px; text-wrap:balance; }
+  .section-title .accent { color:var(--green); }
+  .section-intro { font-size:15px; color:var(--muted); line-height:1.6; margin-bottom:32px; }
+
+  .live { background:linear-gradient(180deg,transparent,rgba(0,255,136,0.04),transparent); }
+  .live-grid { display:flex; flex-direction:column; gap:14px; margin-top:24px; }
+  .live-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; display:flex; gap:18px; align-items:flex-start; transition:border-color 0.25s, transform 0.25s; }
+  .live-card:hover { border-color:rgba(0,255,136,0.3); transform:translateY(-2px); }
+  .live-card-num { font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--green); line-height:1; letter-spacing:0.02em; min-width:40px; padding-top:2px; }
+  .live-card-body { flex:1; }
+  .live-card-title { font-family:'Bebas Neue',sans-serif; font-size:22px; color:#fff; margin-bottom:6px; letter-spacing:0.02em; line-height:1.1; }
+  .live-card-text { font-size:14px; color:var(--muted); line-height:1.55; }
+
+  .problem { background:linear-gradient(180deg,transparent,rgba(255,71,87,0.025),transparent); }
+  .pain-list { display:flex; flex-direction:column; gap:10px; margin-top:24px; }
+  .pain-item { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--red); border-radius:10px; padding:16px 18px; font-size:14px; line-height:1.55; color:#ddd; }
+  .pain-callout { margin-top:28px; padding:20px; background:var(--surface-2); border:1px solid var(--border-strong); border-radius:12px; font-size:15px; line-height:1.5; color:#fff; font-weight:500; text-align:center; }
+  .pain-callout em { color:var(--green); font-style:normal; font-weight:600; }
+
+  /* DEMO — replicando o dashboard real da IA */
+  .demo { background:linear-gradient(180deg,transparent,rgba(0,255,136,0.03),transparent); }
+  .dashboard { margin-top:24px; display:flex; flex-direction:column; gap:12px; }
+  .dash-card { background:var(--surface-3); border:1px solid var(--border); border-radius:14px; padding:18px; }
+
+  .dash-credits-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .dash-label { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+  .dash-credits-status { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--green); letter-spacing:0.02em; line-height:1; margin:6px 0; }
+  .dash-credits-sub { font-size:11px; color:var(--dim); margin-bottom:12px; }
+  .dash-credits-bar { height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+  .dash-credits-fill { height:100%; width:100%; background:linear-gradient(90deg,var(--green),var(--green-dim)); border-radius:3px; box-shadow:0 0 8px rgba(0,255,136,0.4); }
+
+  .dash-stats { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .stat-card { background:var(--surface-3); border:1px solid var(--border); border-radius:12px; padding:16px; }
+  .stat-label { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px; }
+  .stat-value { font-family:'Bebas Neue',sans-serif; font-size:32px; line-height:1; letter-spacing:0.02em; }
+  .stat-value.white { color:#fff; }
+  .stat-value.green { color:var(--green); }
+  .stat-value.red { color:var(--red); }
+  .stat-value.yellow { color:var(--yellow); }
+
+  .dash-field-label { display:flex; align-items:center; gap:8px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; font-weight:600; margin-bottom:10px; }
+  .dash-field-label::before { content:''; width:3px; height:12px; background:var(--green); border-radius:1px; }
+  .dash-select { width:100%; background:var(--bg-elev); border:1px solid var(--border); border-radius:10px; padding:12px 14px; color:#fff; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; display:flex; justify-content:space-between; align-items:center; }
+  .dash-select::after { content:''; width:6px; height:6px; border-right:1.5px solid var(--muted); border-bottom:1.5px solid var(--muted); transform:rotate(45deg) translateY(-2px); }
+
+  .dash-pills { display:flex; gap:8px; }
+  .dash-pill { flex:1; padding:9px 0; text-align:center; background:var(--bg-elev); border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.04em; }
+  .dash-pill.active { background:rgba(0,255,136,0.12); border-color:rgba(0,255,136,0.4); color:var(--green); }
+
+  .dash-analyze { width:100%; padding:16px; border-radius:12px; border:none; background:linear-gradient(180deg,var(--green),var(--green-dim)); color:#000; font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; cursor:default; }
+
+  .dash-signal { background:var(--surface-3); border:2px solid var(--red-dim); border-radius:12px; padding:22px; text-align:center; box-shadow:inset 0 0 40px rgba(255,71,87,0.06); }
+  .dash-signal-direction { font-family:'Bebas Neue',sans-serif; font-size:42px; color:var(--red); letter-spacing:0.08em; line-height:1; }
+
+  .dash-reason { background:var(--surface-3); border:1px solid var(--border); border-radius:10px; padding:14px 16px; font-size:12px; color:#ccc; line-height:1.55; }
+
+  .dash-row { background:var(--surface-3); border:1px solid var(--border); border-radius:10px; padding:14px 16px; text-align:center; }
+  .dash-row-label { font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:6px; }
+  .dash-row-value { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:0.02em; line-height:1; }
+  .dash-row-value.green { color:var(--green); }
+  .dash-row-value.red { color:var(--red); }
+
+  .dash-countdown { background:var(--surface-3); border:1px solid var(--red-dim); border-radius:10px; padding:16px; text-align:center; box-shadow:inset 0 0 30px rgba(255,71,87,0.05); }
+
+  .demo-caption { text-align:center; font-size:12px; color:var(--dim); margin-top:20px; font-style:italic; }
+
+  /* FEATURES */
+  .features-grid { display:grid; grid-template-columns:1fr; gap:12px; margin-top:24px; }
+  .feature { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:12px; padding:18px 20px; transition:transform 0.25s; }
+  .feature:hover { transform:translateY(-2px); }
+  .feature-num { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--green); letter-spacing:0.18em; font-weight:700; margin-bottom:6px; }
+  .feature-title { font-family:'Bebas Neue',sans-serif; font-size:22px; color:#fff; margin-bottom:6px; letter-spacing:0.02em; line-height:1.1; }
+  .feature-text { font-size:13.5px; color:var(--muted); line-height:1.55; }
+
+  .pillars-grid { display:flex; flex-direction:column; gap:14px; margin-top:24px; }
+  .pillar { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px 22px 22px; transition:border-color 0.25s, transform 0.25s; position:relative; overflow:hidden; }
+  .pillar:hover { border-color:rgba(0,255,136,0.3); transform:translateY(-2px); }
+  .pillar-num-bg { font-family:'Bebas Neue',sans-serif; font-size:96px; color:var(--green); opacity:0.08; position:absolute; top:-10px; right:14px; line-height:1; pointer-events:none; }
+  .pillar-num { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.18em; color:var(--green); margin-bottom:8px; font-weight:400; }
+  .pillar-title { font-family:'Bebas Neue',sans-serif; font-size:26px; color:#fff; margin-bottom:10px; letter-spacing:0.02em; line-height:1.1; }
+  .pillar-text { font-size:14px; color:var(--muted); line-height:1.6; }
+  .pillar-text strong { color:#fff; font-weight:600; }
+
+  .how-steps { display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+  .how-step { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:4px; }
+  .how-label { font-size:10px; color:var(--green); text-transform:uppercase; letter-spacing:0.18em; font-weight:700; }
+  .how-desc { font-size:15px; color:var(--text); font-weight:500; line-height:1.4; }
+
+  .scarcity { background:linear-gradient(180deg,transparent,rgba(255,200,50,0.04),transparent); }
+  .bonus-box { background:linear-gradient(180deg,var(--surface),var(--bg-elev)); border:1px solid var(--border-strong); border-radius:16px; padding:28px 22px; margin-top:24px; position:relative; overflow:hidden; }
+  .bonus-box::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--yellow),transparent); }
+  .bonus-tag { display:inline-block; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--yellow); font-weight:700; margin-bottom:12px; }
+  .bonus-headline { font-family:'Bebas Neue',sans-serif; font-size:26px; color:#fff; line-height:1.05; margin-bottom:18px; letter-spacing:0.02em; }
+  .bonus-list { list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:20px; counter-reset:bonus; }
+  .bonus-list li { counter-increment:bonus; display:flex; gap:14px; align-items:flex-start; font-size:14px; color:#ddd; line-height:1.55; }
+  .bonus-list li::before { content:"0" counter(bonus); font-family:'JetBrains Mono',monospace; color:var(--green); font-weight:700; font-size:13px; min-width:24px; padding-top:1px; }
+  .spots-bar { display:flex; flex-direction:column; gap:8px; padding:14px 16px; background:var(--bg); border:1px solid var(--border); border-radius:10px; }
+  .spots-info { display:flex; justify-content:space-between; font-size:12px; }
+  .spots-info span:first-child { color:var(--muted); }
+  .spots-info span:last-child { color:var(--yellow); font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .spots-track { height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+  .spots-fill { height:100%; background:linear-gradient(90deg,var(--green),var(--yellow)); border-radius:3px; width:64%; box-shadow:0 0 8px rgba(255,200,50,0.4); transition:width 0.5s ease; }
+
+  .faq-item { background:var(--surface); border:1px solid var(--border); border-radius:10px; margin-bottom:8px; overflow:hidden; }
+  .faq-q { width:100%; background:transparent; border:none; color:#fff; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; text-align:left; padding:16px 18px; display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; transition:background 0.2s; }
+  .faq-q:hover { background:rgba(255,255,255,0.02); }
+  .faq-q-toggle { color:var(--green); font-size:10px; letter-spacing:0.18em; font-weight:700; text-transform:uppercase; flex-shrink:0; font-family:'JetBrains Mono',monospace; }
+  .faq-item.open .faq-q-toggle::before { content:'Fechar'; }
+  .faq-item:not(.open) .faq-q-toggle::before { content:'Abrir'; }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+  .faq-item.open .faq-a { max-height:340px; }
+  .faq-a-inner { padding:0 18px 16px; font-size:14px; color:var(--muted); line-height:1.6; }
+
+  .final-cta { text-align:center; padding:64px 0 48px; }
+  .final-date { font-family:'Bebas Neue',sans-serif; font-size:clamp(80px,22vw,132px); line-height:0.85; color:var(--green); text-shadow:0 0 40px rgba(0,255,136,0.4); letter-spacing:0.005em; margin-bottom:12px; }
+  .final-tag { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:28px; }
+  .final-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(32px,8vw,48px); line-height:1; color:#fff; margin-bottom:14px; letter-spacing:0.02em; }
+  .final-title .accent { color:var(--green); }
+  .final-sub { font-size:15px; color:var(--muted); margin-bottom:28px; line-height:1.55; max-width:400px; margin-left:auto; margin-right:auto; }
+
+  footer { padding:32px 0 56px; border-top:1px solid var(--border); margin-top:24px; }
+  .footer-content { text-align:center; font-size:11px; color:var(--dim); line-height:1.7; }
+  .footer-content strong { color:var(--muted); }
+
+  .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity:1; transform:translateY(0); }
+
+  .hero > * { opacity:0; transform:translateY(16px); animation:fadeUp 0.6s ease forwards; }
+  .hero > *:nth-child(1) { animation-delay:0.1s; }
+  .hero > *:nth-child(2) { animation-delay:0.2s; }
+  .hero > *:nth-child(3) { animation-delay:0.32s; }
+  .hero > *:nth-child(4) { animation-delay:0.44s; }
+  .hero > *:nth-child(5) { animation-delay:0.56s; }
+  .hero > *:nth-child(6) { animation-delay:0.68s; }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; } }
+  @media (min-width:640px) { .container { padding:0 32px; } .features-grid { grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">BALACLAVA</div>
+    <span class="live-pill">Pré-lançamento</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Live de lançamento dia 15</div>
+    <h1 class="hero-title">A IA que olha o gráfico<span class="accent">por você.</span></h1>
+    <p class="hero-sub">Sem 4 horas de análise, sem entrar no medo, sem revenge trade depois da loss. Dia 15 de maio eu mostro a <strong>BALACLAVA IA</strong> operando ao vivo, dentro do grupo do WhatsApp.</p>
+
+    <div class="live-block">
+      <div class="live-block-label">Live de lançamento</div>
+      <div class="live-block-date">
+        <span class="live-num">15.05</span>
+      </div>
+      <div class="live-meta"><strong>Ao vivo</strong> dentro do grupo do WhatsApp</div>
+    </div>
+
+    <a href="#" class="cta-primary" data-cta="hero">Entrar no grupo do WhatsApp</a>
+    <span class="cta-meta"><strong>Vagas limitadas.</strong> A live é só pra quem tá dentro do grupo.</span>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="container">
+    <span class="section-tag reveal">A real é essa</span>
+    <h2 class="section-title reveal">Você não tá perdendo dinheiro<br><span class="accent">por falta de estratégia.</span></h2>
+    <p class="section-intro reveal">Você tá perdendo porque o tempo no gráfico te quebra emocionalmente. A IA resolve os dois.</p>
+
+    <div class="pain-list">
+      <div class="pain-item reveal">Passou 3 horas estudando o gráfico, entrou com medo na hora errada, deu loss.</div>
+      <div class="pain-item reveal">Levou uma loss e foi pra cima querendo recuperar, perdeu o dobro em 10 minutos.</div>
+      <div class="pain-item reveal">Achou um setup bom, ficou esperando "só mais uma confirmação", perdeu a entrada.</div>
+      <div class="pain-item reveal">Acordou cedo pra operar e no fim do dia não sobrou nada da banca.</div>
+    </div>
+
+    <div class="pain-callout reveal">Não é o mercado que te quebra. É o tempo que você passa olhando ele <em>com medo de errar.</em></div>
+  </div>
+</section>
+
+<section class="demo">
+  <div class="container">
+    <span class="section-tag reveal">Como a IA funciona</span>
+    <h2 class="section-title reveal">Ela analisa.<br><span class="accent">Você executa.</span></h2>
+    <p class="section-intro reveal">Esse é o painel que você abre todo dia pra operar. A IA cruza os padrões e te entrega o sinal pronto:</p>
+
+    <div class="dashboard reveal">
+
+      <div class="dash-card">
+        <div class="dash-credits-top">
+          <span class="dash-label">Entradas restantes hoje</span>
+        </div>
+        <div class="dash-credits-status">ILIMITADO</div>
+        <div class="dash-credits-sub">Plano ilimitado · 7 análises hoje</div>
+        <div class="dash-credits-bar"><div class="dash-credits-fill"></div></div>
+      </div>
+
+      <div class="dash-stats">
+        <div class="stat-card">
+          <div class="stat-label">Total de análises</div>
+          <div class="stat-value white">71</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Compra</div>
+          <div class="stat-value green">32</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Venda</div>
+          <div class="stat-value red">39</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Assertividade</div>
+          <div class="stat-value yellow">80%</div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-field-label">Selecionar ativo</div>
+        <div class="dash-select"><span>EUR/USD OTC</span></div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-field-label">Timeframe</div>
+        <div class="dash-pills">
+          <div class="dash-pill active">M1</div>
+          <div class="dash-pill">M2</div>
+          <div class="dash-pill">M3</div>
+          <div class="dash-pill">M5</div>
+        </div>
+      </div>
+
+      <button class="dash-analyze" type="button" disabled>Analisar agora</button>
+
+      <div class="dash-signal">
+        <div class="dash-signal-direction">VENDA</div>
+      </div>
+
+      <div class="dash-reason">
+        RSI exatamente em 70 com preço (1.176295) acima da Bollinger superior (1.176013) após 9 candles consecutivos de alta e impulso 1.79x, setup S1 de reversão à média ativado, bull_dominance 97% é extremo e frequentemente precede exaustão em OTC sintético.
+      </div>
+
+      <div class="dash-row">
+        <div class="dash-row-label">Expiração</div>
+        <div class="dash-row-value green">1min</div>
+      </div>
+
+      <div class="dash-countdown">
+        <div class="dash-row-label">Entre no próximo candle em</div>
+        <div class="dash-row-value red">00:33</div>
+      </div>
+
+    </div>
+
+    <p class="demo-caption reveal">Você abre, recebe o sinal, executa. O ciclo todo em menos de 30 segundos.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag reveal">O que vem dentro</span>
+    <h2 class="section-title reveal">Não é só a IA.<br><span class="accent">É um sistema completo.</span></h2>
+    <p class="section-intro reveal">Tudo que você precisa pra operar com cabeça fria e executar com método, num só lugar.</p>
+
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="feature-num">01</div>
+        <h3 class="feature-title">Sinais COMPRA / VENDA automáticos</h3>
+        <p class="feature-text">A IA cruza padrões em milissegundos e te entrega o sinal pronto. Você só clica e executa, sem precisar ler gráfico.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">02</div>
+        <h3 class="feature-title">Gestão de banca com planilha</h3>
+        <p class="feature-text">Planilha de gerenciamento que calcula o valor de entrada por nível de banca. Sem chute, sem martingale no escuro.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">03</div>
+        <h3 class="feature-title">Oportunidades ao vivo no mercado</h3>
+        <p class="feature-text">Aba que mostra em tempo real os ativos com setup formando. Você não precisa abrir 15 gráficos pra achar entrada.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">04</div>
+        <h3 class="feature-title">Stop Loss e Stop Win inteligente</h3>
+        <p class="feature-text">O sistema sinaliza quando parar de operar no dia, antes do emocional te quebrar. Banca preservada na automático.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">05</div>
+        <h3 class="feature-title">Premiações exclusivas</h3>
+        <p class="feature-text">Ações periódicas dentro da comunidade pra quem opera consistente, com prêmios reais pros melhores resultados.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">06</div>
+        <h3 class="feature-title">Suporte direto no Telegram</h3>
+        <p class="feature-text">Tira dúvida direto comigo e com a equipe no Telegram, sem fila de chatbot e sem ticket que ninguém responde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag reveal">Por que funciona</span>
+    <h2 class="section-title reveal">A IA mata as <span class="accent">três coisas</span><br>que te fazem perder.</h2>
+
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-num-bg">01</div>
+        <div class="pillar-num">Pilar 01</div>
+        <h3 class="pillar-title">Mata o tempo</h3>
+        <p class="pillar-text">Você não passa mais <strong>4 horas grudado no gráfico</strong> pra entrar em uma operação. Abre o app, recebe o sinal, executa em 30 segundos. O resto do dia é seu.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num-bg">02</div>
+        <div class="pillar-num">Pilar 02</div>
+        <h3 class="pillar-title">Mata o emocional</h3>
+        <p class="pillar-text">A IA <strong>não tem medo, não tem ganância, não quer revenge</strong> depois da loss. Ela analisa cada operação friamente. Você só executa, sem o seu cérebro sabotando a entrada.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num-bg">03</div>
+        <div class="pillar-num">Pilar 03</div>
+        <h3 class="pillar-title">Aprende com a loss</h3>
+        <p class="pillar-text">Toda operação errada é <strong>analisada e cruzada com o histórico</strong> pra ajustar o próximo sinal. Cada loss que você toma alimenta o sistema, o que você nunca conseguiu fazer sozinho na sua cabeça.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scarcity">
+  <div class="container">
+    <span class="section-tag reveal">Quem entra agora</span>
+    <h2 class="section-title reveal">Os primeiros levam<br><span class="accent">o que ninguém mais leva.</span></h2>
+
+    <div class="bonus-box reveal">
+      <span class="bonus-tag">Bônus de pré-lançamento</span>
+      <h3 class="bonus-headline">Quem entra antes da live garante:</h3>
+      <ul class="bonus-list">
+        <li>Lugar reservado na live de lançamento dia 15, dentro do grupo</li>
+        <li>Acesso antecipado, 24 horas antes do público geral</li>
+        <li>Valor de lançamento, antes do reajuste oficial pós-live</li>
+        <li>Bônus de boas-vindas com indicador, planilha e copytrader</li>
+        <li>Suporte direto comigo no WhatsApp pra tirar qualquer dúvida</li>
+      </ul>
+
+      <div class="spots-bar">
+        <div class="spots-info">
+          <span>Vagas no grupo</span>
+          <span id="spots-text">32 / 50 preenchidas</span>
+        </div>
+        <div class="spots-track"><div class="spots-fill" id="spots-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="final-date reveal">15.05</div>
+    <div class="final-tag reveal">Ao vivo no grupo do WhatsApp</div>
+    <h2 class="final-title reveal">Dia 15 tá <span class="accent">chegando.</span></h2>
+    <p class="final-sub reveal">Você pode ficar mais 5 dias na frente do gráfico apertando o botão no medo, ou pode entrar no grupo agora e assistir a IA operar ao vivo.</p>
+    <a href="#" class="cta-primary reveal" data-cta="final">Entrar no grupo do WhatsApp</a>
+    <span class="cta-meta">Vagas vão preenchendo. Não dorme nessa.</span>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-content">
+    <strong>Balaclava Trader · Balaclava IA</strong><br>
+    Esse site não é afiliado ao Facebook, WhatsApp ou Meta Platforms.<br>
+    Operações de opções binárias envolvem risco. Resultado passado não garante resultado futuro.<br>
+    Opere com responsabilidade.
+  </div>
+</footer>
+
+<script>
+  // Link do grupo do WhatsApp
+  const WHATSAPP_LINK = 'https://chat.whatsapp.com/IcMABtYH0QP5UvlXUMwzD2';
+  document.querySelectorAll('a[data-cta]').forEach(el => { el.href = WHATSAPP_LINK; });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  window.toggleFaq = toggleFaq;
+
+  let viewContentFired = false;
+  function fireViewContent() {
+    if (viewContentFired) return;
+    if (window.scrollY > 200) {
+      viewContentFired = true;
+      if (window.fbq) fbq('track', 'ViewContent', { content_name: 'Balaclava IA Pre-Launch' });
+      window.removeEventListener('scroll', fireViewContent);
+    }
+  }
+  window.addEventListener('scroll', fireViewContent, { passive: true });
+
+  document.querySelectorAll('a[data-cta]').forEach(el => {
+    el.addEventListener('click', () => {
+      const source = el.getAttribute('data-cta');
+      if (window.fbq) {
+        fbq('track', 'Lead', { content_name: 'Balaclava IA WhatsApp Group', content_category: source });
+      }
+    });
+  });
+
+  const spotsText = document.getElementById('spots-text');
+  const spotsFill = document.getElementById('spots-fill');
+  let currentSpots = 32;
+  const targetSpots = 47;
+  function bumpSpots() {
+    if (currentSpots < targetSpots && Math.random() > 0.6) {
+      currentSpots++;
+      spotsText.textContent = currentSpots + ' / 50 preenchidas';
+      spotsFill.style.width = (currentSpots / 50 * 100) + '%';
+    }
+  }
+  setInterval(bumpSpots, 22000);
+</script>
+
+<!-- Vercel Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>
